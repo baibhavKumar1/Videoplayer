@@ -6,10 +6,10 @@ import { ThemeProvider } from './components/themeProvider'
 const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <div className='bg-black'>
+      <div className='dark:bg-black '>
         <Navbar />
         <AllRoutes />
-        <div className="w-[100%] bg-black flex flex-col items-center mt-[20px]">
+        <div className="w-[100%] dark:bg-black flex flex-col items-center mt-[20px]">
           <hr className="w-[95vw] my-4" />
         </div>
       </div>

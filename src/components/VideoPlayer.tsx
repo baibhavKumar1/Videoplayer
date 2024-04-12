@@ -114,8 +114,8 @@ const VideoPlayer: React.FC = () => {
 
   return (
     <div className="flex flex-col sm:flex-row gap-4 px-6 mt-5">
-      <div className="md:w-[70%] sm:w-[100%]">
-        <div className="h-[75vh]">
+      <div className="md:w-[70%] sm:w-[100%] ">
+        <div className="h-[75vh] rounded border-black border">
           {curr && (
             <video
               src={curr?.submission?.mediaUrl}
@@ -127,52 +127,52 @@ const VideoPlayer: React.FC = () => {
           )}
         </div>
 
-        <div className="flex justify-between px-5">
+        <div className="flex justify-between px-5 ">
           <div className="mt-2 flex items-center gap-4">
-            <img src={curr?.creator.pic} alt="" className="w-10 h-10 rounded-full" />
+            <img src={curr?.creator.pic} alt="" className="w-10 h-10 rounded-full border border-black" />
             <div>
-              <p className="text-white text-start font-medium text-lg">
+              <p className="dark:text-white text-start font-medium text-lg">
                 {curr?.creator.name ? curr?.creator.name : "Random Creator"}
               </p>
-              <p className='text-red-400'>@{curr?.creator.handle}</p>
+              <p className='dark:text-red-400 text-red-700 font-medium'>@{curr?.creator.handle}</p>
             </div>
           </div>
 
           <div className="flex gap-1 items-center">
-            <button className="text-white" onClick={handleLike} >Like</button>
-            <p className="text-white mx-1">{likes}</p>
-            <button className="text-white" onClick={handleDislike} >Dislike</button>
-            <p className="text-white mx-1">{dislikes}</p>
+            <button className="dark:text-white" onClick={handleLike} >Like</button>
+            <p className="dark:text-white mx-1">{likes}</p>
+            <button className="dark:text-white" onClick={handleDislike} >Dislike</button>
+            <p className="dark:text-white mx-1">{dislikes}</p>
           </div>
         </div>
 
         <div className="px-5 mt-5">
-          <h1 className='text-white text-xl font-medium'>Description</h1>
-          <p className='text-white/60'>
+          <h1 className='dark:text-white text-xl font-medium'>Description</h1>
+          <p className='dark:text-white/60'>
             {curr?.submission.description}
           </p>
         </div>
 
         <div className='my-2 flex flex-col gap-5 px-5'>
-          <h1 className='font-medium text-white md:text-lg'>
+          <h1 className='font-medium dark:text-white md:text-lg'>
             {comments ? comments.length : 0} Comments
           </h1>
           <textarea
-            placeholder="Add a comment..." className="w-full border-b h-10 text-white bg-black outline-none " value={newComment} onChange={(e) => setNewComment(e.target.value)} />
+            placeholder="Add a comment..." className="w-full border-b h-10 dark:text-white dark:bg-black outline-none " value={newComment} onChange={(e) => setNewComment(e.target.value)} />
           {
-            newComment && (<div className='flex justify-end text-white gap-2'>
-              <button className='hover:bg-white/30 hover:rounded px-1' onClick={()=>setNewComment("")}>Cancel</button>
-              <button className='hover:bg-white/30 hover:rounded px-1' onClick={handleAdd}>Comment</button>
+            newComment && (<div className='flex justify-end dark:text-white gap-2'>
+              <button className='dark:bg-white/30 bg-black/30 rounded px-1' onClick={()=>setNewComment("")}>Cancel</button>
+              <button className='dark:bg-white/30 bg-black/30 rounded px-1' onClick={handleAdd}>Comment</button>
             </div>)
           }
 
-          <div className="text-white">
+          <div className="dark:text-white">
             {comments.map((comment, index) => (
-              <div key={index} className="flex justify-between">
+              <div key={index} className="flex justify-between p-1 border dark:border-white border-black rounded">
                 {index === commentIndex ? (
-                  <textarea className="w-[85%] border-b h-8 text-white outline-none" value={editComment} onChange={(e) => setEditComment(e.target.value)} />
+                  <textarea className="w-[85%] border-b border-black h-8 dark:text-white outline-none" value={editComment} onChange={(e) => setEditComment(e.target.value)} />
                 ) : (
-                  <h2>{comment}</h2>
+                  <h2 className=''>{comment}</h2>
                 )}
                 <div className='flex gap-2'>
                   {index === commentIndex ? (
