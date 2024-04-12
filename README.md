@@ -77,5 +77,6 @@ npm run dev
 4. Add comments by typing in the comment box and clicking the "Comment" button.
 5. Edit or delete your own comments by clicking the respective buttons next to each comment.
 
-## Contributing
-Contributions are welcome! Feel free to submit bug reports, feature requests, or pull requests to help improve the application.
+---
+
+
